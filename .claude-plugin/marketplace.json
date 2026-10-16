@@ -4,7 +4,7 @@
   "plugins": [
     {
       "name": "ui-lab",
-      "source": "./",
+      "source": ".",
       "description": "Preview any page of a local web app in any data state via ?uilab=, with writes blocked and nothing ever committed."
     }
   ]

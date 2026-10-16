@@ -18,28 +18,29 @@ UI Lab it is a URL.
 
 Requires [Claude Code](https://claude.com/claude-code), Node 18+ and git.
 
-```bash
-# as a plugin
-/plugin marketplace add <this-repo-url>
-/plugin install ui-lab
+**Easiest:** open Claude Code in your app's frontend folder and paste:
 
-# or as a plain skill
-git clone <this-repo-url> ~/.claude/ui-lab-skill
-# macOS/Linux
-ln -s ~/.claude/ui-lab-skill/skills/ui-lab ~/.claude/skills/ui-lab
-# Windows (PowerShell, as admin or with Developer Mode on)
-New-Item -ItemType SymbolicLink -Path "$HOME\.claude\skills\ui-lab" -Target "$HOME\.claude\ui-lab-skill\skills\ui-lab"
+> Set up UI Lab for this app by following https://github.com/jatinaesc/UI-Lab-Skill/blob/main/SETUP.md exactly.
+
+**Manual:**
+
 ```
+/plugin install ui-lab --marketplace jatinaesc/UI-Lab-Skill
+```
+
+On older Claude Code: `/plugin marketplace add jatinaesc/UI-Lab-Skill`, then
+`/plugin install ui-lab@ui-lab`, then `/reload-plugins`. Full steps, a no-plugin
+install, checks and troubleshooting are all in **[SETUP.md](SETUP.md)**.
 
 ## Use it — QA / non-developers
 
 Open Claude Code in your app's folder and say what you want:
 
-> /ui-lab show me the jobs page with 50 jobs and very long titles
+> show me the jobs page with 50 jobs and very long titles
 
-> /ui-lab what does the booking page look like when there are no slots?
+> what does the booking page look like when there are no slots?
 
-Claude sets everything up and gives you links. Restart the dev server once when asked.
+(Or type `/ui-lab:ui-lab` — `/ui-lab` if installed as a plain skill.) Claude sets everything up and gives you links. Restart the dev server once when asked.
 Then:
 
 | On the yellow bar | What it does |
@@ -109,6 +110,7 @@ names. Check them before sending, and never commit them anywhere, this repo incl
 ## Repo layout
 
 ```
+SETUP.md                                    step-by-step install, written for humans and Claude Code
 .claude-plugin/plugin.json
 skills/ui-lab/SKILL.md                      instructions Claude follows
 skills/ui-lab/scripts/uilab.mjs             CLI (no dependencies)

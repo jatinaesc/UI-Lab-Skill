@@ -8,7 +8,7 @@ description: Preview any page of a local web app in any data state — empty, fl
 The **real page**, fed different data, with a floating bar to switch states. No database
 seeding, no separate test route, no edits to the app's code in the normal case.
 
-`SKILL_DIR` below = the folder holding this file. CLI = `node "$SKILL_DIR/scripts/uilab.mjs"`.
+CLI = `node "${CLAUDE_SKILL_DIR}/scripts/uilab.mjs"` (`${CLAUDE_SKILL_DIR}` is this skill's folder; if it shows up unexpanded, use the folder this SKILL.md was loaded from).
 
 ## Who you are talking to
 
@@ -44,7 +44,7 @@ The whole job takes **under 8 tool calls**. One batched investigation, at most o
 ### 1. Install (once per app, ~1 call)
 
 ```bash
-node "$SKILL_DIR/scripts/uilab.mjs" install --app <frontend folder>
+node "${CLAUDE_SKILL_DIR}/scripts/uilab.mjs" install --app <frontend folder>
 ```
 It finds the app (Next.js, Vite or CRA) and copies the runtime to `public/__uilab__/`.
 It adds one loader line, either as a new git-excluded file or as a marked line hidden
@@ -110,7 +110,7 @@ response shapes field-for-field, because a missing field breaks a component and 
 
 ### 4. Hand over
 
-Run `node "$SKILL_DIR/scripts/uilab.mjs" list` and paste the links. Then tell the user
+Run `node "${CLAUDE_SKILL_DIR}/scripts/uilab.mjs" list` and paste the links. Then tell the user
 in plain words:
 
 - **The yellow bar** (bottom-right): switch scenario, toggle Empty / Long text / Loading / Error,
