@@ -1,0 +1,11 @@
+{
+  "name": "ui-lab",
+  "owner": { "name": "UI Lab maintainers" },
+  "plugins": [
+    {
+      "name": "ui-lab",
+      "source": "./",
+      "description": "Preview any page of a local web app in any data state via ?uilab=, with writes blocked and nothing ever committed."
+    }
+  ]
+}

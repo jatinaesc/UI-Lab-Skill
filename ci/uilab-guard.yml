@@ -1,0 +1,18 @@
+# Optional backstop for app repos. Copy to .github/workflows/uilab-guard.yml.
+# Fails any PR that carries UI Lab files or @uilab lines, even if someone forced them past git.
+name: uilab-guard
+on: [pull_request]
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Block UI Lab artefacts
+        run: |
+          if git ls-files | grep -q "__uilab__"; then
+            echo "::error::UI Lab files are committed:"; git ls-files | grep "__uilab__"; exit 1
+          fi
+          if git grep -n "@uilab" -- . ':!.github/workflows/uilab-guard.yml'; then
+            echo "::error::@uilab lines found. Remove them (uilab uninstall) and push again."; exit 1
+          fi
+          echo "clean"

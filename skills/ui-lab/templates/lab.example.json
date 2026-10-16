@@ -1,0 +1,18 @@
+{
+  "lab": "example",
+  "page": "/",
+  "notes": "One line: what this lab is for.",
+  "routes": {
+    "GET /api/items*": {
+      "body": { "items": [{ "id": 1, "name": "First item", "status": "active" }], "total": 1 }
+    }
+  },
+  "scenarios": {
+    "empty": { "note": "no items at all", "flags": { "empty": true } },
+    "flooded": { "note": "60 items, stresses scrolling", "flags": { "flood": 60 } },
+    "long-names": { "note": "very long text everywhere", "flags": { "long": true } },
+    "error": { "note": "API fails", "routes": { "GET /api/items*": { "status": 500, "body": { "detail": "Server error" } } } },
+    "slow": { "note": "3 second load, shows skeletons", "flags": { "latency": 3000 } }
+  },
+  "allowWrites": []
+}

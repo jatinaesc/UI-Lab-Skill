@@ -1,0 +1,6 @@
+# Lab files hold app data. They belong in each app repo's local, git-excluded folder — never here.
+__uilab__/
+*.lab.json
+recorded.json
+node_modules/
+.claude/

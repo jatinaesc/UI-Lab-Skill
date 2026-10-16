@@ -1,0 +1,6 @@
+{
+  "name": "ui-lab",
+  "version": "1.0.0",
+  "description": "Preview any page of a local web app in any data state (empty, flooded, long text, error, loading, slow) via ?uilab=, with writes blocked and nothing ever committed.",
+  "license": "MIT"
+}
